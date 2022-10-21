@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Yahtzee</title>
+	<link rel="stylesheet" type="text/css" href="assets/yahtzee-complete.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/png" href="dicefavicon.ico">
+</head>
+<body>
+<div id="topContainer">
+	<div>
+		<div id="ruleBox">
+			<h3>HOW TO PLAY YAHTZEE</h3>
+			<br>
+			<p>The game consists of 13 rounds. In each round, you roll the dice and then score the roll in one of 13 categories. You must score once in each category. This means that towards the end of the game you may have to settle for scoring zero in some categories. The score is determined by a different rule for each category. The object of the game is to maximize your total score. The game ends once all 13 categories have been scored.</p>
+			<br>
+			<h3>ROLLING THE DICE</h3>
+			<br>
+			<p>To start with, you roll all dice by clicking on the roll button. After you roll all dice, you can either score the current roll, or re-roll any or all of the five dice. To re-roll some of the dice, click on the hold button underneath the die face you want to hold, then click on the roll button. This will hold the selected dice, leaving the unselected ones to roll. You can roll the dice a total of three times - the initial roll (in which you must roll all the dice), plus two re-rolls of any or all dice. After rolling three times, you must score the roll.	Once you've scored the roll, you roll all the dice again and repeat the process. You continue until all 13 categories have been filled, at which time the game is over.</p>
+		</div>
+	
+		<div id="threeOfAKindHelpBox" class="scoringHelpBox">
+			<h3>THREE OF A KIND SCORING</h3>
+			<br>
+			<p>For 3 of a Kind, you must have at least three of the same die faces. If so, you total all the die faces and score that total.</p>
+			<br>
+			<p>The combination below would score 20 points.</p>
+			<div>
+				<img src="assets/images/5.svg"><img src="assets/images/5.svg"><img src="assets/images/2.svg"><img src="assets/images/3.svg"><img src="assets/images/5.svg">
+			</div>
+		</div>
+	
+		<div id="fourOfAKindHelpBox" class="scoringHelpBox">
+			<h3>FOUR OF A KIND SCORING</h3>
+			<br>
+			<p>For 4 of a Kind, you must have at least four of the same die faces. If so, you total all the die faces and score that total.</p>
+			<br>
+			<p>The combination below would score 29 points.</p>
+			<div>
+				<img src="assets/images/6.svg"><img src="assets/images/5.svg"><img src="assets/images/6.svg"><img src="assets/images/6.svg"><img src="assets/images/6.svg">
+			</div>
+		</div>
+	
+		<div id="fullHouseHelpBox" class="scoringHelpBox">
+			<h3>FULL HOUSE SCORING</h3>
+			<br>
+			<p>As in poker, a Full House is a roll where you have both a 3 of a kind, and a pair. Full houses score 25 points.</p>
+			<div>
+				<img src="assets/images/3.svg"><img src="assets/images/3.svg"><img src="assets/images/3.svg"><img src="assets/images/1.svg"><img src="assets/images/1.svg">
+			</div>
+		</div>
+	
+		<div id="smallStraightHelpBox" class="scoringHelpBox">
+			<h3>SMALL STRAIGHT SCORING</h3>
+			<br>
+			<p>A small straight is 4 consecutive faces. Small straights score 30 points</p>
+			<div>
+				<img src="assets/images/1.svg"><img src="assets/images/3.svg"><img src="assets/images/4.svg"><img src="assets/images/5.svg"><img src="assets/images/6.svg">
+			</div>
+		</div>
+	
+		<div id="largeStraightHelpBox" class="scoringHelpBox">
+			<h3>LARGE STRAIGHT SCORING</h3>
+			<br>
+			<p>A large straight is 5 consecutive faces. Large straights score 40 points</p>
+			<div>
+				<img src="assets/images/1.svg"><img src="assets/images/2.svg"><img src="assets/images/3.svg"><img src="assets/images/4.svg"><img src="assets/images/5.svg">
+			</div>
+		</div>
+	
+		<div id="yahtzeeHelpBox" class="scoringHelpBox">
+			<h3>YAHTZEE SCORING</h3>
+			<br>
+			<p>A Yahtzee is a 5 of a Kind (i.e. all the die faces are the same), and it scores 50 points.</p>
+			<div>
+				<img src="assets/images/2.svg"><img src="assets/images/2.svg"><img src="assets/images/2.svg"><img src="assets/images/2.svg"><img src="assets/images/2.svg">
+			</div>
+		</div>
+	
+		<div id="chanceHelpBox" class="scoringHelpBox">
+			<h3>CHANCE SCORING</h3>
+			<br>
+			<p>Chance is the catch-all roll. You can roll anything and you simply total all the die faces values.</p>
+		</div>
+	</div>
+	
+
+	<div id="scoreSheetContainer">
+
+		<div id="topWrapper">
+			<h1>Yahtzee</h1>
+			<h3 id="message">PRESS ROLL TO BEGIN</h3>
+			<input id="newGameButton" type='button' value='New Game' onclick='newGame()'>
+		</div>
+
+		<div id='diceWrap'>
+			<div class="diceRollContainer">
+				<div class='dice' id='diceOneWrap'>
+					<img class ="diceDisp" id='diceOneDisp' src="assets/images/1.svg">
+				</div>
+				<input class='holdButtons' type='button' value='Hold' onclick="toggleHold(0, diceOneDisp)" disabled>
+			</div>
+
+			<div class="diceRollContainer">
+				<div class='dice' id='diceTwoWrap'>
+					<img class ="diceDisp" id='diceTwoDisp' src="assets/images/1.svg">
+				</div>
+				<input class='holdButtons' type='button' value='Hold' onclick="toggleHold(1, diceTwoDisp)" disabled>
+			</div>
+
+			<div class="diceRollContainer">
+				<div class='dice' id='diceThreeWrap'>
+					<img class ="diceDisp" id='diceThreeDisp' src="assets/images/1.svg">
+				</div>
+				<input class='holdButtons' type='button' value='Hold' onclick="toggleHold(2, diceThreeDisp)" disabled>
+			</div>
+
+			<div class="diceRollContainer">
+				<div class='dice' id='diceFourWrap'>
+					<img class ="diceDisp" id='diceFourDisp' src="assets/images/1.svg">
+				</div>
+				<input class='holdButtons' type='button' value='Hold' onclick="toggleHold(3, diceFourDisp)" disabled>
+			</div>
+			
+			<div class="diceRollContainer">
+				<div class='dice' id='diceFiveWrap'>
+					<img class ="diceDisp" id='diceFiveDisp' src="assets/images/1.svg">
+				</div>
+				<input class='holdButtons' type='button' value='Hold' onclick="toggleHold(4, diceFiveDisp)" disabled>
+			</div>
+
+			<div class="diceRollContainer">
+				<div id="rollWrap">
+					<input id="rollButton" type='button' value='Roll' onclick='diceRoll()'>
+				</div>
+			</div>
+		</div>
+
+		<div id="scoreSheet">
+			<table id="upperTable">
+				<tr>
+					<th class="tableHeading">Upper Section</th>
+					<th class="tableHeading">Score</th>
+				</tr>
+				<tr class ="hoverHighlight">
+					<td><img src="assets/images/1.svg"> <span class="bolded">Ones </span><span class="rightFloat">Score total of ones</span></td>
+					<td class="scoreCell" id="onesScoreDisp" onclick="calculateUpper('ones', 1, 'onesScoreDisp')">...</td>
+				</tr>
+				<tr class ="hoverHighlight">
+					<td><img src="assets/images/2.svg"> <span class="bolded">Twos </span><span class="rightFloat">Score total of twos</span></td>
+					<td class="scoreCell" id="twosScoreDisp" onclick="calculateUpper('twos', 2, 'twosScoreDisp')">...</td>
+				</tr>
+				<tr class ="hoverHighlight">
+					<td><img src="assets/images/3.svg"> <span class="bolded">Threes </span><span class="rightFloat">Score total of threes</span></td>
+					<td class="scoreCell" id="threesScoreDisp" onclick="calculateUpper('threes', 3, 'threesScoreDisp')">...</td>
+				</tr>
+				<tr class ="hoverHighlight">
+					<td><img src="assets/images/4.svg"> <span class="bolded">Fours </span><span class="rightFloat">Score total of fours</span></td>
+					<td class="scoreCell" id="foursScoreDisp" onclick="calculateUpper('fours', 4, 'foursScoreDisp')">...</td>
+				</tr>
+				<tr class ="hoverHighlight">
+					<td><img src="assets/images/5.svg"> <span class="bolded">Fives </span><span class="rightFloat">Score total of fives</span></td>
+					<td class="scoreCell" id="fivesScoreDisp" onclick="calculateUpper('fives', 5, 'fivesScoreDisp')">...</td>
+				</tr>
+				<tr class ="hoverHighlight">
+					<td><img src="assets/images/6.svg"> <span class="bolded">Sixes </span><span class="rightFloat">Score total of sixes</span></td>
+					<td class="scoreCell" id="sixesScoreDisp" onclick="calculateUpper('sixes', 6, 'sixesScoreDisp')">...</td>
+				</tr>
+				<tr>
+					<td class="rightAlign"><span class="bolded">Total Score</span></td>
+					<td class="totalCell" id="upperTotalDisp"></td>
+				</tr>
+				<tr>
+					<td class="rightAlign"><span>35 bonus if Total Score is 63 or over </span><span class="bolded">Bonus</span></td>
+					<td class="totalCell" id="bonusDisp"></td>
+				</tr>
+				<tr>
+					<td class="rightAlign"><span class="bolded">Section Total</span></td>
+					<td class="totalCell" id="upperGrandTotalDisp"></td>
+				</tr>
+			</table>
+
+			<table id="lowerTable">
+				<tr>
+					<th class="tableHeading">Lower Section</th>
+					<th class="tableHeading">Score</th>
+				</tr>
+
+				<tr class ="hoverHighlight">
+					<td><span class="bolded">3 of a kind <span class="scoreInfo" id="threeOfAKindHelp">?</span></span><span class="rightFloat">Score total of all dice</span></td>
+					<td class="scoreCell" id="threeOfKindScoreDisp" onclick='calculateThreeOfKind()'>...</td>
+				</tr>
+				<tr class ="hoverHighlight">
+					<td><span class="bolded">4 of a kind <span class="scoreInfo" id="fourOfAKindHelp">?</span></span><span class="rightFloat">Score total of all dice</span></td>
+					<td class="scoreCell" id="fourOfKindScoreDisp" onclick='calculateFourOfKind()'>...</td>
+				</tr>
+				<tr class ="hoverHighlight">
+					<td><span class="bolded">Full house <span class="scoreInfo" id="fullHouseHelp">?</span></span><span class="rightFloat">Score 25</span></td>
+					<td class="scoreCell" id="fullHouseScoreDisp" onclick='calculateFullHouse()'>...</td>
+				</tr>
+				<tr class ="hoverHighlight">
+					<td><span class="bolded">Small straight <span class="scoreInfo" id="smallStraightHelp">?</span></span><span class="rightFloat">Score 30</span></td>
+					<td class="scoreCell" id="smallStraightScoreDisp" onclick='calculateSmallStraight()'>...</td>
+				</tr>
+				<tr class ="hoverHighlight">
+					<td><span class="bolded">Large straight <span class="scoreInfo" id="largeStraightHelp">?</span></span><span class="rightFloat">Score 40</span></td>
+					<td class="scoreCell" id="largeStraightScoreDisp" onclick='calculateLargeStraight()'>...</td>
+				</tr>
+				<tr class ="hoverHighlight">
+					<td><span class="bolded">Yahtzee <span class="scoreInfo" id="yahtzeeHelp">?</span></span><span class="rightFloat">Score 50</span></td>
+					<td class="scoreCell" id="yahtzeeScoreDisp" onclick='calculateYahtzee()'>...</td>
+				</tr>
+				<tr class ="hoverHighlight">
+					<td><span class="bolded">Chance <span class="scoreInfo" id="chanceHelp">?</span></span><span class="rightFloat">Score total of all dice</span></td>
+					<td class="scoreCell" id="chanceScoreDisp" onclick='calculateChance()'>...</td>
+				</tr>
+				<tr>
+					<td class="rightAlign"><span class="bolded">Total of upper section</span></td>
+					<td class="totalCell" id="upperGrandTotalDisp2"></td>
+				</tr>
+				<tr>
+					<td class="rightAlign"><span class="bolded">Total of lower section</span></td>
+					<td class="totalCell" id="lowerGrandTotalDisp"></td>
+				</tr>
+			</table>
+
+			<table id="grandTotalTable">
+				<tr>
+					<td class="rightAlign"><span class="bolded">Grand Total</span></td>
+					<td class="totalCell" id="gameGrandTotalDisp"></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="tagline">
+			<p class="leftFloat" id="howToPlay">How To Play</p>
+			<p class="rightFloat">Made with love by <a href="../index.html">Tim Lyons</a></p>
+		</div>
+		
+	</div>
+</div>
+<script type="text/javascript" src="assets/yahtzee-complete.js"></script>
+
+</body>
+</html>

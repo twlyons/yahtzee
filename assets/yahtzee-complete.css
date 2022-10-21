@@ -1,0 +1,230 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	cursor: default;
+	font-family: "Roboto Mono";
+	background-color: white;
+	background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b3b3b3' fill-opacity='0.42'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+#topContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+}
+
+#scoreSheetContainer {
+	width: 400px;
+	border: 1px solid gray;
+	background: white;
+	margin: 30px auto;
+	padding: 18px 18px 0 18px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+#topWrapper {
+	width: 400px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 18px;
+}
+
+#topWrapper h1 {
+	display: inline-block;
+	font-size: 1.2em;
+}
+
+#topWrapper h3 {
+	display: inline-block;
+}
+
+#newGameButton {
+	display: inline-block;
+	width: 80px;
+}
+
+#diceWrap {
+	display: flex;
+	justify-content: space-between;
+	margin: 0px auto 18px auto;
+}
+
+#diceWrap img {
+	width: 40px;
+}
+
+input {
+	font-family: "Roboto Mono";
+	outline: none;
+}
+
+.holdButtons {
+	width: 40px;
+	margin-top: 4px;
+}
+
+#rollButton {
+	width: 80px;
+	height: 70px;
+}
+
+#scoreSheet img {
+	width: 15px;
+	vertical-align: middle;
+}
+
+table {
+	margin: 0 auto;
+	font-size: 12px;
+	width: 400px;
+}
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 3px 6px;
+}
+
+#upperTable {
+	margin-bottom: 18px;
+}
+
+#lowerTable {
+	margin-bottom: 18px;
+}
+
+.scoreInfo {
+	display: inline-block;
+	border: 1px solid #d6d6d6;
+	border-radius: 25px;
+	background: #d6d6d6;
+	color: black;
+	text-align: center;
+	width: 12px;
+	height: 12px;
+	vertical-align: auto;
+	font-size: 9px;
+}
+
+.bolded {
+	font-weight: bold;
+}
+
+.hoverHighlight:hover {
+	background-color: #fff9c9;
+}
+
+.tableHeading {
+	font-size: 14px;
+}
+
+.scoreCell {
+	cursor: pointer;
+	text-align: center;
+	width: 55px;
+}
+
+.totalCell {
+	text-align: center;
+	width: 55px;
+	font-weight: bold;
+}
+
+.rightFloat {
+	float: right;
+}
+
+.leftFloat {
+	float: left;
+}
+
+.rightAlign {
+	text-align: right;
+}
+
+#threeOfAKindHelpBox {
+	display: none;
+}
+
+#fourOfAKindHelpBox {
+	display: none;
+}
+
+#fullHouseHelpBox {
+	display: none;
+}
+
+#smallStraightHelpBox {
+	display: none;
+}
+
+#largeStraightHelpBox {
+	display: none;
+}
+
+#yahtzeeHelpBox {
+	display: none;
+}
+
+#chanceHelpBox {
+	display: none;
+}
+
+.scoringHelpBox {
+	position: fixed;
+	left: 47vw;
+	top: 60vh;
+	padding: 12px;
+	font-size: 11px;
+	line-height: 18px;
+	width: 300px;
+	background-color: white;
+	border: 1px black solid;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.scoringHelpBox img {
+	width: 30px;
+	padding: 14px 10px 0px 0px;
+}
+
+#ruleBox {
+	display: none;
+	background-color: white;
+	border: 1px black solid;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	width: 380px;
+	padding: 12px;
+	font-size: 11px;
+	line-height: 18px;
+	position: fixed;
+	left: 42vw;
+	top: 20vh;
+}
+
+.tagline {
+	color: #b3b3b3;
+	font-size: 10px;
+	padding-bottom: 28px;
+	padding-top: 12px;
+}
+
+.tagline p {
+	display: inline-block;
+}
+
+.tagline a:link {
+	text-decoration: none;
+	color: #b3b3b3;
+  }
+
+.tagline a:visited {
+	text-decoration: none;
+	color: #b3b3b3;
+  }
