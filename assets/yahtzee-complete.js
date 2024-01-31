@@ -255,6 +255,7 @@ function newGame() {
   resetDice();
   updateMessageDisplay();
   enableRollButton();
+  disableHoldButtons();
 }
 
 function calculationEnd() {
